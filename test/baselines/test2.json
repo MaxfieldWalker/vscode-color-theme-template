@@ -1,0 +1,33 @@
+{
+    "name": "Spirited Away",
+    "tokenColors": [
+        {
+            "settings": {
+                "background": "#151515",
+                "foreground": "#CFCFCF"
+            }
+        },
+        {
+            "name": "Comment",
+            "scope": "comment",
+            "settings": {
+                "foreground": "$green"
+            }
+        },
+        {
+            "name": "String",
+            "scope": [
+                "string",
+                "constant.character.escape.ts"
+            ],
+            "settings": {
+                "foreground": "$blue@mid"
+            }
+        }
+    ],
+    "colorPalette": {
+        "$blue": "#CFCFCF",
+        "$green": "#0F0",
+        "@mid": "80"
+    }
+}
