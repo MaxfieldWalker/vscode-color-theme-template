@@ -1,5 +1,8 @@
 ## vscode-color-theme-template
 
+[![Build Status](https://travis-ci.org/MaxfieldWalker/vscode-color-theme-template.svg?branch=master)](https://travis-ci.org/MaxfieldWalker/vscode-color-theme-template)
+[![Coverage Status](https://coveralls.io/repos/github/MaxfieldWalker/vscode-color-theme-template/badge.svg?branch=master)](https://coveralls.io/github/MaxfieldWalker/vscode-color-theme-template?branch=master)
+
 
 ## Features
 - Color variables
