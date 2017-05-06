@@ -17,8 +17,7 @@ export function parseJson(jsonFilePath: string): object {
 }
 
 export function createColorPalette(jsonObj: any): ColorPalette {
-    const colorMap = new Map<string, string>();
-    const alphaMap = new Map<string, string>();
+    const palette = new ColorPalette();
 
     // colorPaletteキーの値はあるか
     if (_.has(jsonObj, "colorPalette")) {
@@ -31,14 +30,14 @@ export function createColorPalette(jsonObj: any): ColorPalette {
                 if (key.startsWith("$")) {
                     // '$'ではじまるならcolorのMapに
                     if (isValidColor(value)) {
-                        addValueToMap(colorMap, key, value);
+                        palette.addColor(key, value);
                     } else {
                         throw new Error(`Invalid color: ${value}`);
                     }
                 } else if (key.startsWith("@")) {
                     // '@'ではじまるならアルファ値のMapに
                     if (isValidAlpha(value)) {
-                        addValueToMap(alphaMap, key, value);
+                        palette.addAlpha(key, value);
                     } else {
                         throw new Error(`Invalid alpha: ${value}`);
                     }
@@ -51,16 +50,7 @@ export function createColorPalette(jsonObj: any): ColorPalette {
         }
     }
 
-    return new ColorPalette(colorMap, alphaMap);
-}
-
-function addValueToMap(map: Map<string, string>, key: string, value: string) {
-    // 重複はエラー
-    if (map.has(key)) {
-        throw new Error(`The map has already the value against the key '${key}'`);
-    } else {
-        map.set(key, value);
-    }
+    return palette;
 }
 
 function isValidColor(color: string): boolean {

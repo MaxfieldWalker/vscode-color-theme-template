@@ -4,10 +4,13 @@ export class ColorPalette {
     private colorMap: Map<string, string>;
     private alphaMap: Map<string, string>;
 
-    constructor(colorMap: Map<string, string>, alphaMap: Map<string, string>) {
-        this.colorMap = colorMap;
-        this.alphaMap = alphaMap;
+    constructor() {
+        this.colorMap = new Map();
+        this.alphaMap = new Map();
     }
+
+    public addColor = (key: string, color: string) => addValueToMap(this.colorMap, key, color);
+    public addAlpha = (key: string, alpha: string) => addValueToMap(this.alphaMap, key, alpha);
 
     public getColor(color: string) {
         const v = this.colorMap.get(color);
