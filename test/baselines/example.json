@@ -17,6 +17,12 @@
             "settings": {
                 "foreground": "$blue@mid"
             }
+        },
+        {
+            "name": "only alpha value variable",
+            "settings": {
+                "foreground": "#0000FF@mid"
+            }
         }
     ],
     "colorPalette": {
