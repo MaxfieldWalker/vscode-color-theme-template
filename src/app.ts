@@ -3,8 +3,7 @@
 "use strict";
 
 import { sys, ExitStatus } from "./sys";
-import { replace } from "./replace";
-import { parseJson, createColorPalette } from "./colorPalette";
+import { compile } from "./compiler";
 import * as fs from "fs";
 import * as path from "path";
 
@@ -21,10 +20,7 @@ function execute(args: string[]): void {
 
     const [source, out] = args;
 
-    // 変換する
-    const json = parseJson(source);
-    const colorPalette = createColorPalette(json);
-    const compiled = replace(json, colorPalette);
+    const compiled = compile(source);
 
     // 結果を書き込み
     makeSureDirExists(out);

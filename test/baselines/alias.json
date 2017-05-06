@@ -1,0 +1,30 @@
+{
+    "name": "example",
+    "tokenColors": [
+        {
+            "name": "String",
+            "scope": [
+                "string",
+                "constant.character.escape.ts"
+            ],
+            "settings": {
+                "foreground": "$string-color"
+            }
+        },
+        {
+            "name": "only alpha value variable",
+            "settings": {
+                "foreground": "#0000FF@medium"
+            }
+        }
+    ],
+    "colorPalette": {
+        "$blue": "#0000FF",
+        "$green": "#0F0",
+        "@mid": "80"
+    },
+    "alias": {
+        "$string-color": "$blue",
+        "@medium": "@mid"
+    }
+}
