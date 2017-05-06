@@ -35,7 +35,11 @@ $ vscode-color-theme-template ./theme.json ./out/theme.json
 {
     "colorPalette": {
         "$blue": "#0000FF",
-        "@medium": "80"
+        "@mid": "80"
+    },
+    "alias": {
+        "$string-color": "$blue",
+        "@medium": "@mid"
     }
 }
 ```
