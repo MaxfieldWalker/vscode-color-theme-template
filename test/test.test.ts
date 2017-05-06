@@ -8,11 +8,13 @@ import { replace } from "../src/replace";
 
 suite("tests", () => {
     test("replacement", () => {
-        const json = parseJson("./test/baselines/test2.json");
-        const colorPalette = createColorPalette("./test/baselines/test2.json");
+        const json = parseJson("./test/baselines/example.json");
+        const colorPalette = createColorPalette(json);
         const replaced = replace(json, colorPalette);
-        console.log(JSON.stringify(replaced, undefined, 4));
 
+        const tokenColors = replaced["tokenColors"];
+        assert.equal(tokenColors[0]["settings"]["foreground"], "#0F0");
+        assert.equal(tokenColors[1]["settings"]["foreground"], "#0000FF80");
     });
 
     test("create color palette", () => {
