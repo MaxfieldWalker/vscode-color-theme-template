@@ -4,10 +4,16 @@ import * as fs from "fs";
 import * as _ from "lodash";
 import { ColorPalette } from "./types";
 
-export function parseJson(jsonFilePath: string): any {
+export function parseJson(jsonFilePath: string): object {
     const s = fs.readFileSync(jsonFilePath).toString();
-    const json = JSON.parse(s);
-    return json;
+
+    try {
+        const json = JSON.parse(s);
+        return json;
+    } catch (ex) {
+        const json = eval("(" + s + ")");
+        return json;
+    }
 }
 
 export function createColorPalette(jsonObj: any): ColorPalette {
