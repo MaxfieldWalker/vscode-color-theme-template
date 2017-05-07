@@ -38,7 +38,7 @@ export function replace(jsonObj: object, colorPalette: ColorPalette): object {
 }
 
 export function preprocess(jsonObj: object, aliasTable: AliasTable): object {
-    return traverseJsonValues(jsonObj, v => v.replace(new RegExp(/\$\$[^\$]+/, "g"), (s) => aliasTable.getAliasTo(s)));
+    return traverseJsonValues(jsonObj, v => v.replace(new RegExp(/\$\$[^\$@]+/, "g"), (s) => aliasTable.getAliasTo(s)));
 }
 
 function traverseJsonValues(json: object, callback: (value: string) => string): object {

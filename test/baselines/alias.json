@@ -12,15 +12,21 @@
             }
         },
         {
-            "name": "only alpha value variable",
+            "name": "alpha value alias",
             "settings": {
                 "foreground": "#0000FF$$medium"
             }
         },
         {
-            "name": "only alpha value variable",
+            "name": "whole alias",
             "settings": {
                 "foreground": "$$list-active-background"
+            }
+        },
+        {
+            "name": "alias and alpha variable",
+            "settings": {
+                "foreground": "$$string-color@mid"
             }
         }
     ],
