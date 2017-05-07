@@ -31,6 +31,7 @@ $ vscode-color-theme-template ./theme.json ./out/theme.json
 ```json
 // $color -> Hex Color (e.g. #000, #CDCDCD)
 // @alpha -> Alpha value (e.g. FF, 80)
+// $$alias -> Alias (e.g. $blue, $blue@mid)
 
 {
     "colorPalette": {
@@ -38,8 +39,8 @@ $ vscode-color-theme-template ./theme.json ./out/theme.json
         "@mid": "80"
     },
     "alias": {
-        "$string-color": "$blue",
-        "@medium": "@mid"
+        "$$string-color": "$blue",
+        "$$medium": "@mid"
     }
 }
 ```
