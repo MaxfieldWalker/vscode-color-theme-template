@@ -21,6 +21,6 @@ export function compile(source: string): any {
 }
 
 function omitUnnecessaryValue(obj: any): any {
-    // 'colorPalette'の値は不要なので取り除く
-    return _.omit(obj, ["colorPalette"]);
+    // 'colorPalette' や 'alias' の値は不要なので取り除く
+    return _.omit(obj, ["colorPalette", "alias"]);
 }
