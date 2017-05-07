@@ -1,6 +1,7 @@
 "use strict";
 
-import { replace } from "./replace";
+import * as _ from "lodash";
+import { replace, preprocess } from "./replace";
 import { parseJson, createColorPalette } from "./colorPalette";
 import { createAliasTable } from "./alias";
 
@@ -11,9 +12,15 @@ export function compile(source: string): any {
     const colorPalette = createColorPalette(json);
     // エイリアステーブルを作る
     const aliasTable = createAliasTable(json);
-    colorPalette.registerAliases(aliasTable);
 
-    const compiled = replace(json, colorPalette);
+    // エイリアステーブルで登録されているものを置換する
+    const preprocessed = preprocess(json, aliasTable);
+    const compiled = replace(preprocessed, colorPalette);
+    const omitted = omitUnnecessaryValue(compiled);
+    return omitted;
+}
 
-    return compiled;
+function omitUnnecessaryValue(obj: any): any {
+    // 'colorPalette'の値は不要なので取り除く
+    return _.omit(obj, ["colorPalette"]);
 }

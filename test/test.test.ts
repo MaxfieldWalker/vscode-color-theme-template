@@ -31,5 +31,6 @@ suite("tests", () => {
         const tokenColors = compiled["tokenColors"];
         assert.equal(tokenColors[0]["settings"]["foreground"], "#0000FF");
         assert.equal(tokenColors[1]["settings"]["foreground"], "#0000FF80");
+        assert.equal(tokenColors[2]["settings"]["foreground"], "#0000FF80");
     });
 });

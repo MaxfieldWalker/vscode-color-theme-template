@@ -29,22 +29,6 @@ export class ColorPalette {
             return v;
         }
     }
-
-    /**
-     * エイリアスをカラーパレットに登録する
-     * 例:
-     * "$border" -> "$white" というエイリアスが登録されている場合
-     * "$border" -> "#FFF" をカラーパレットに登録する
-     */
-    public registerAliases(aliasTable: AliasTable): void {
-        for (const [alias, to] of aliasTable.getAliasEntries()) {
-            if (to.startsWith("$")) {
-                addValueToMap(this.colorMap, alias, this.getColor(to));
-            } else {
-                addValueToMap(this.alphaMap, alias, this.getAlpha(to));
-            }
-        }
-    }
 }
 
 export class AliasTable {
@@ -56,6 +40,13 @@ export class AliasTable {
 
     public addAlias(alias: string, to: string): void {
         addValueToMap(this.aliasMap, alias, to);
+    }
+
+    public getAliasTo(alias: string): string {
+        const to = this.aliasMap.get(alias);
+        if (to === undefined) throw new Error(`Alias ${alias} is not registered`);
+
+        return to;
     }
 
     public getAliasEntries(): [string, string][] {

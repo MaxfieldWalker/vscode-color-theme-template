@@ -8,13 +8,19 @@
                 "constant.character.escape.ts"
             ],
             "settings": {
-                "foreground": "$string-color"
+                "foreground": "$$string-color"
             }
         },
         {
             "name": "only alpha value variable",
             "settings": {
-                "foreground": "#0000FF@medium"
+                "foreground": "#0000FF$$medium"
+            }
+        },
+        {
+            "name": "only alpha value variable",
+            "settings": {
+                "foreground": "$$list-active-background"
             }
         }
     ],
@@ -24,7 +30,8 @@
         "@mid": "80"
     },
     "alias": {
-        "$string-color": "$blue",
-        "@medium": "@mid"
+        "$$string-color": "$blue",
+        "$$medium": "@mid",
+        "$$list-active-background": "$blue@mid"
     }
 }
